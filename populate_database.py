@@ -39,7 +39,6 @@ def populate_database():
     # Clear existing data
     cursor.execute("DELETE FROM permits")
     cursor.execute("DELETE FROM vehicles")
-    cursor.execute("DELETE FROM sqlite_sequence WHERE name='permits' OR name='vehicles'")
 
     # Generate 250 records
     for _ in range(250):
