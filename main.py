@@ -1,7 +1,6 @@
 from ui import QtCore, QtGui, QtWidgets, Ui_Dialog 
 
 
-# Run app
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

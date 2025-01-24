@@ -88,10 +88,12 @@ class Ui_Dialog(object):
     
     def _setup_navigation_buttons(self):
         self.BUTTONS = QtWidgets.QHBoxLayout()
-        buttons = ['FIRST', 'NEXT', 'LAST', 'PREVIOUS']
+        buttons = ['FIRST', 'LAST', 'NEXT', 'PREVIOUS']
         for button in buttons:
             btn = self._create_standard_button(f"{button.capitalize()} Record")
             setattr(self, f'{button}RECORD', btn)
+            # Connect button to its handler
+            btn.clicked.connect(getattr(self, f'handle_{button.lower()}_click'))
             self.BUTTONS.addWidget(btn)
         self.MAINGRID.addLayout(self.BUTTONS, 3, 0, 1, 3)
     
@@ -101,6 +103,8 @@ class Ui_Dialog(object):
         for attr, text in categories:
             btn = self._create_standard_button(f"{text} Cars")
             setattr(self, f'{attr}CARS', btn)
+            # Connect button to its handler
+            btn.clicked.connect(lambda checked, cat=attr.lower(): self.handle_category_click(cat))
             self.SIDEBUTTONS.addWidget(btn)
     
     def _setup_detail_table(self):
@@ -118,6 +122,27 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle("Dialog")
         self.TITLE.setText("Collyers Car Park")
+    
+    # Add button handlers
+    def handle_first_click(self):
+        print("First button clicked")
+        # Add your logic here
+
+    def handle_last_click(self):
+        print("Last button clicked")
+        # Add your logic here
+
+    def handle_next_click(self):
+        print("Next button clicked")
+        # Add your logic here
+
+    def handle_previous_click(self):
+        print("Previous button clicked")
+        # Add your logic here
+
+    def handle_category_click(self, category):
+        print(f"Category {category} button clicked")
+        # Add your logic here
 
 
 # Run the application
