@@ -31,7 +31,7 @@ import random
 class DataGenerator:
     def __init__(self):
         self.faker = faker.Faker('en_GB')  # Set British English locale
-        self.conn = sqlite3.connect('carpark.db')
+        self.conn = sqlite3.connect('../carpark.db')
         self.cursor = self.conn.cursor()
         self._create_tables()  # Add this line
         
