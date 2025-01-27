@@ -15,13 +15,18 @@ class Ui_Dialog(object):
         self.MAINGRID = QtWidgets.QGridLayout(self.layoutWidget)
         self.MAINGRID.setContentsMargins(0, 0, 0, 0)
 
-        self._setup_title()
-        self._setup_input_fields()
-        self._setup_navigation_buttons()
-        self._setup_category_buttons()
-        self._setup_detail_table()
-        self._setup_image()
+        # Create tab widget
+        self.tabWidget = QtWidgets.QTabWidget(self.layoutWidget)
+        self.viewTab = QtWidgets.QWidget()
+        self.editTab = QtWidgets.QWidget()
+        self.tabWidget.addTab(self.viewTab, "View Records")
+        self.tabWidget.addTab(self.editTab, "Add New Record")
 
+        # Setup both tabs
+        self._setup_view_tab()
+        self._setup_edit_tab()
+
+        self.MAINGRID.addWidget(self.tabWidget)
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -70,7 +75,6 @@ class Ui_Dialog(object):
         palette.setColor(QtGui.QPalette.Window, QtGui.QColor(85, 170, 255))
         palette.setColor(QtGui.QPalette.WindowText, QtGui.QColor(0, 0, 0))
         self.TITLE.setPalette(palette)
-        self.MAINGRID.addWidget(self.TITLE, 0, 0, 1, 3)
 
     def _setup_input_fields(self):
         # Create layouts
@@ -78,10 +82,12 @@ class Ui_Dialog(object):
         self.INFOLABELS = QtWidgets.QVBoxLayout()
 
         # Create input fields
-        fields = ["NAME", "REGISTRATION", "MAKE", "MODEL"]
+        fields = ["FIRSTNAME", "LASTNAME", "REGISTRATION", "MAKE", "MODEL"]
         for field in fields:
             # Create and add label
-            label = self._create_standard_label(field.capitalize())
+            label = self._create_standard_label(
+                field.title()
+            )  # Use title() for nicer display
             setattr(self, f"{field}LABEL", label)
             self.INFOLABELS.addWidget(label)
 
@@ -90,19 +96,22 @@ class Ui_Dialog(object):
             setattr(self, f"{field}INPUT", input_field)
             self.INPUTLABELS.addWidget(input_field)
 
-        self.MAINGRID.addLayout(self.INFOLABELS, 1, 0, 1, 1)
-        self.MAINGRID.addLayout(self.INPUTLABELS, 1, 1, 1, 1)
-
     def _setup_navigation_buttons(self):
         self.BUTTONS = QtWidgets.QHBoxLayout()
-        buttons = ["FIRST", "LAST", "NEXT", "PREVIOUS"]
-        for button in buttons:
-            btn = self._create_standard_button(f"{button.capitalize()} Record")
-            setattr(self, f"{button}RECORD", btn)
-            # Connect button to its handler
-            btn.clicked.connect(getattr(self, f"handle_{button.lower()}_click"))
+
+        # Create navigation buttons in specific order
+        nav_buttons = [
+            ("FIRST", "First Record"),
+            ("PREVIOUS", "Previous"),
+            ("NEXT", "Next"),
+            ("FINAL", "Final Record"),
+        ]
+
+        for attr, text in nav_buttons:
+            btn = self._create_standard_button(text)
+            setattr(self, f"{attr}RECORD", btn)
+            btn.clicked.connect(getattr(self, f"handle_{attr.lower()}_click"))
             self.BUTTONS.addWidget(btn)
-        self.MAINGRID.addLayout(self.BUTTONS, 3, 0, 1, 3)
 
     def _setup_category_buttons(self):
         self.SIDEBUTTONS = QtWidgets.QVBoxLayout()
@@ -123,20 +132,128 @@ class Ui_Dialog(object):
     def _setup_detail_table(self):
         self.SIDEBUTTONSANDTABLE = QtWidgets.QHBoxLayout()
         self.DETAILTABLE = QtWidgets.QTableWidget(self.layoutWidget)
+
         # Set table properties
         self.DETAILTABLE.setAlternatingRowColors(True)
         self.DETAILTABLE.setShowGrid(True)
         self.DETAILTABLE.setStyleSheet("QTableWidget::item { padding: 5px; }")
-        self.SIDEBUTTONSANDTABLE.addWidget(self.DETAILTABLE)
-        self.SIDEBUTTONSANDTABLE.addLayout(self.SIDEBUTTONS)
-        self.MAINGRID.addLayout(self.SIDEBUTTONSANDTABLE, 2, 0, 1, 3)
 
-    def _setup_image(self):
-        self.IMAGE = QtWidgets.QLabel(self.layoutWidget)
-        self.IMAGE.setPixmap(
-            QtGui.QPixmap(".\\../Pictures/Saved Pictures/66u46ummrnp21.png")
+        # Set size policy to expand
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
         )
-        self.MAINGRID.addWidget(self.IMAGE, 1, 2, 1, 1)
+        self.DETAILTABLE.setSizePolicy(sizePolicy)
+
+        # Add stretch factor to make table expand
+        self.SIDEBUTTONSANDTABLE.addWidget(self.DETAILTABLE, stretch=1)
+        self.SIDEBUTTONSANDTABLE.addLayout(self.SIDEBUTTONS)
+
+    def _setup_view_tab(self):
+        layout = QtWidgets.QVBoxLayout(self.viewTab)
+
+        self._setup_title()
+        layout.addWidget(self.TITLE)
+
+        # Add search section title with minimum height
+        searchTitle = QtWidgets.QLabel("Search Records")
+        searchTitle.setFont(self._get_font(14, bold=True))
+        searchTitle.setMaximumHeight(30)
+        layout.addWidget(searchTitle)
+
+        # Make search section compact
+        searchLayout = QtWidgets.QHBoxLayout()
+        self._setup_input_fields()
+        searchLayout.addLayout(self.INFOLABELS)
+        searchLayout.addLayout(self.INPUTLABELS)
+        layout.addLayout(searchLayout)
+
+        # Make clear search button compact
+        self.CLEARSEARCH = self._create_standard_button("Clear Search")
+        self.CLEARSEARCH.setMaximumHeight(30)
+        layout.addWidget(self.CLEARSEARCH)
+
+        self._setup_category_buttons()
+        self._setup_detail_table()
+        # Add stretch factor to make table section expand
+        layout.addLayout(self.SIDEBUTTONSANDTABLE, stretch=1)
+
+        # Keep status and navigation buttons compact
+        self.STATUSLABEL = QtWidgets.QLabel()
+        self.STATUSLABEL.setAlignment(QtCore.Qt.AlignCenter)
+        self.STATUSLABEL.setFont(self._get_font(12))
+        self.STATUSLABEL.setMaximumHeight(30)
+        layout.addWidget(self.STATUSLABEL)
+
+        self._setup_navigation_buttons()
+        layout.addLayout(self.BUTTONS)
+
+    def _setup_edit_tab(self):
+        layout = QtWidgets.QVBoxLayout(self.editTab)
+
+        # Add a descriptive label at the top
+        addLabel = QtWidgets.QLabel("Add New Parking Permit")
+        addLabel.setFont(self._get_font(16, bold=True))
+        addLabel.setAlignment(QtCore.Qt.AlignCenter)
+        layout.addWidget(addLabel)
+
+        # Add description label
+        descLabel = QtWidgets.QLabel("Enter details for the new permit:")
+        descLabel.setFont(self._get_font(12))
+        layout.addWidget(descLabel)
+
+        # Input fields for new record
+        editGrid = QtWidgets.QGridLayout()
+
+        # Person details
+        row = 0
+        for field in ["First Name", "Last Name"]:
+            label = QtWidgets.QLabel(field)
+            input_field = self._create_standard_input()
+            setattr(self, f"{field.replace(' ', '').upper()}EDIT", input_field)
+            editGrid.addWidget(label, row, 0)
+            editGrid.addWidget(input_field, row, 1)
+            row += 1
+
+        # Role selection
+        self.ROLEEDIT = QtWidgets.QComboBox()
+        self.ROLEEDIT.addItems(["STUDENT", "STAFF", "VISITOR"])
+        editGrid.addWidget(QtWidgets.QLabel("Role"), row, 0)
+        editGrid.addWidget(self.ROLEEDIT, row, 1)
+        row += 1
+
+        # Car details
+        for field in ["Make", "Model", "Registration"]:
+            label = QtWidgets.QLabel(field)
+            input_field = self._create_standard_input()
+            setattr(self, f"{field.upper()}EDIT", input_field)
+            editGrid.addWidget(label, row, 0)
+            editGrid.addWidget(input_field, row, 1)
+            row += 1
+
+        # Date fields
+        self.DATEISSUED = QtWidgets.QDateEdit()
+        self.DATEEXPIRY = QtWidgets.QDateEdit()
+        self.DATEISSUED.setCalendarPopup(True)
+        self.DATEEXPIRY.setCalendarPopup(True)
+        self.DATEISSUED.setDate(QtCore.QDate.currentDate())
+        self.DATEEXPIRY.setDate(QtCore.QDate.currentDate().addYears(1))
+
+        editGrid.addWidget(QtWidgets.QLabel("Date Issued"), row, 0)
+        editGrid.addWidget(self.DATEISSUED, row, 1)
+        row += 1
+        editGrid.addWidget(QtWidgets.QLabel("Date Expiry"), row, 0)
+        editGrid.addWidget(self.DATEEXPIRY, row, 1)
+        row += 1
+
+        # Action buttons
+        buttonLayout = QtWidgets.QHBoxLayout()
+        self.SAVEBUTTON = self._create_standard_button("Save Record")
+        self.CLEARBUTTON = self._create_standard_button("Clear Fields")
+        buttonLayout.addWidget(self.SAVEBUTTON)
+        buttonLayout.addWidget(self.CLEARBUTTON)
+
+        layout.addLayout(editGrid)
+        layout.addLayout(buttonLayout)
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle("Dialog")
@@ -162,15 +279,3 @@ class Ui_Dialog(object):
     def handle_category_click(self, category):
         print(f"Category {category} button clicked")
         # Add your logic here
-
-
-# Run the application
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
