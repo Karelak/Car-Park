@@ -191,7 +191,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Last Record</string>
+         <string>Final Record</string>
         </property>
         <property name="default">
          <bool>false</bool>

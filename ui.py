@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'carpark.ui'
+# Form implementation generated from reading ui file '.\carpark.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -34,9 +34,7 @@ class Ui_Dialog(object):
         self.SIDEBUTTONS = QtWidgets.QVBoxLayout()
         self.SIDEBUTTONS.setObjectName("SIDEBUTTONS")
         self.STUDENTCARS = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.STUDENTCARS.sizePolicy().hasHeightForWidth())
@@ -49,9 +47,7 @@ class Ui_Dialog(object):
         self.STUDENTCARS.setObjectName("STUDENTCARS")
         self.SIDEBUTTONS.addWidget(self.STUDENTCARS)
         self.VISITORCARS = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.VISITORCARS.sizePolicy().hasHeightForWidth())
@@ -64,9 +60,7 @@ class Ui_Dialog(object):
         self.VISITORCARS.setObjectName("VISITORCARS")
         self.SIDEBUTTONS.addWidget(self.VISITORCARS)
         self.STAFFCARS = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.STAFFCARS.sizePolicy().hasHeightForWidth())
@@ -83,9 +77,7 @@ class Ui_Dialog(object):
         self.BUTTONS = QtWidgets.QHBoxLayout()
         self.BUTTONS.setObjectName("BUTTONS")
         self.FIRSTRECORD = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.FIRSTRECORD.sizePolicy().hasHeightForWidth())
@@ -95,23 +87,17 @@ class Ui_Dialog(object):
         self.FIRSTRECORD.setObjectName("FIRSTRECORD")
         self.BUTTONS.addWidget(self.FIRSTRECORD)
         self.PREVIOUSRECORD = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.PREVIOUSRECORD.sizePolicy().hasHeightForWidth()
-        )
+        sizePolicy.setHeightForWidth(self.PREVIOUSRECORD.sizePolicy().hasHeightForWidth())
         self.PREVIOUSRECORD.setSizePolicy(sizePolicy)
         self.PREVIOUSRECORD.setDefault(False)
         self.PREVIOUSRECORD.setFlat(False)
         self.PREVIOUSRECORD.setObjectName("PREVIOUSRECORD")
         self.BUTTONS.addWidget(self.PREVIOUSRECORD)
         self.NEXTRECORD = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.NEXTRECORD.sizePolicy().hasHeightForWidth())
@@ -121,9 +107,7 @@ class Ui_Dialog(object):
         self.NEXTRECORD.setObjectName("NEXTRECORD")
         self.BUTTONS.addWidget(self.NEXTRECORD)
         self.LASTRECORD = QtWidgets.QPushButton(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LASTRECORD.sizePolicy().hasHeightForWidth())
@@ -282,9 +266,7 @@ class Ui_Dialog(object):
         self.INPUTLABELS = QtWidgets.QVBoxLayout()
         self.INPUTLABELS.setObjectName("INPUTLABELS")
         self.NAMEINPUT = QtWidgets.QLineEdit(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.NAMEINPUT.sizePolicy().hasHeightForWidth())
@@ -301,14 +283,10 @@ class Ui_Dialog(object):
         self.NAMEINPUT.setObjectName("NAMEINPUT")
         self.INPUTLABELS.addWidget(self.NAMEINPUT)
         self.REGISTRATIONINPUT = QtWidgets.QLineEdit(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.REGISTRATIONINPUT.sizePolicy().hasHeightForWidth()
-        )
+        sizePolicy.setHeightForWidth(self.REGISTRATIONINPUT.sizePolicy().hasHeightForWidth())
         self.REGISTRATIONINPUT.setSizePolicy(sizePolicy)
         self.REGISTRATIONINPUT.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -321,9 +299,7 @@ class Ui_Dialog(object):
         self.REGISTRATIONINPUT.setObjectName("REGISTRATIONINPUT")
         self.INPUTLABELS.addWidget(self.REGISTRATIONINPUT)
         self.MAKEINPUT = QtWidgets.QLineEdit(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.MAKEINPUT.sizePolicy().hasHeightForWidth())
@@ -339,9 +315,7 @@ class Ui_Dialog(object):
         self.MAKEINPUT.setObjectName("MAKEINPUT")
         self.INPUTLABELS.addWidget(self.MAKEINPUT)
         self.MODELINPUT = QtWidgets.QLineEdit(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.MODELINPUT.sizePolicy().hasHeightForWidth())
@@ -360,9 +334,7 @@ class Ui_Dialog(object):
         self.INFOLABELS = QtWidgets.QVBoxLayout()
         self.INFOLABELS.setObjectName("INFOLABELS")
         self.NAMELABEL = QtWidgets.QLabel(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.NAMELABEL.sizePolicy().hasHeightForWidth())
@@ -374,19 +346,13 @@ class Ui_Dialog(object):
         self.NAMELABEL.setFrameShape(QtWidgets.QFrame.WinPanel)
         self.NAMELABEL.setObjectName("NAMELABEL")
         self.INFOLABELS.addWidget(self.NAMELABEL)
-        spacerItem = QtWidgets.QSpacerItem(
-            20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
-        )
+        spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.INFOLABELS.addItem(spacerItem)
         self.REGISTRATIONLABEL = QtWidgets.QLabel(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.REGISTRATIONLABEL.sizePolicy().hasHeightForWidth()
-        )
+        sizePolicy.setHeightForWidth(self.REGISTRATIONLABEL.sizePolicy().hasHeightForWidth())
         self.REGISTRATIONLABEL.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -395,14 +361,10 @@ class Ui_Dialog(object):
         self.REGISTRATIONLABEL.setFrameShape(QtWidgets.QFrame.WinPanel)
         self.REGISTRATIONLABEL.setObjectName("REGISTRATIONLABEL")
         self.INFOLABELS.addWidget(self.REGISTRATIONLABEL)
-        spacerItem1 = QtWidgets.QSpacerItem(
-            20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
-        )
+        spacerItem1 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.INFOLABELS.addItem(spacerItem1)
         self.MAKELABEL = QtWidgets.QLabel(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.MAKELABEL.sizePolicy().hasHeightForWidth())
@@ -414,14 +376,10 @@ class Ui_Dialog(object):
         self.MAKELABEL.setFrameShape(QtWidgets.QFrame.WinPanel)
         self.MAKELABEL.setObjectName("MAKELABEL")
         self.INFOLABELS.addWidget(self.MAKELABEL)
-        spacerItem2 = QtWidgets.QSpacerItem(
-            20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
-        )
+        spacerItem2 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.INFOLABELS.addItem(spacerItem2)
         self.MODELABEL = QtWidgets.QLabel(self.layoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
-        )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.MODELABEL.sizePolicy().hasHeightForWidth())
@@ -438,14 +396,12 @@ class Ui_Dialog(object):
         self.MAINGRID.addLayout(self.INFOLABELS, 1, 0, 1, 1)
         self.IMAGE = QtWidgets.QLabel(self.layoutWidget)
         self.IMAGE.setText("")
-        self.IMAGE.setPixmap(
-            QtGui.QPixmap("../Pictures/Saved Pictures/66u46ummrnp21.png")
-        )
+        self.IMAGE.setPixmap(QtGui.QPixmap(".\\../Pictures/Saved Pictures/66u46ummrnp21.png"))
         self.IMAGE.setObjectName("IMAGE")
         self.MAINGRID.addWidget(self.IMAGE, 1, 3, 1, 1)
         self.label = QtWidgets.QLabel(self.layoutWidget)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Carpark.png"))
+        self.label.setPixmap(QtGui.QPixmap(".\\Carpark.png"))
         self.label.setObjectName("label")
         self.MAINGRID.addWidget(self.label, 1, 2, 1, 1)
 
@@ -461,7 +417,7 @@ class Ui_Dialog(object):
         self.FIRSTRECORD.setText(_translate("Dialog", "First Record"))
         self.PREVIOUSRECORD.setText(_translate("Dialog", "Previous Record"))
         self.NEXTRECORD.setText(_translate("Dialog", "Next Record"))
-        self.LASTRECORD.setText(_translate("Dialog", "Last Record"))
+        self.LASTRECORD.setText(_translate("Dialog", "Final Record"))
         self.TITLE.setText(_translate("Dialog", "Collyers Car Park"))
         self.NAMELABEL.setText(_translate("Dialog", "Name"))
         self.REGISTRATIONLABEL.setText(_translate("Dialog", "Registration"))
