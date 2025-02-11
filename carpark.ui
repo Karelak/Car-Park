@@ -30,22 +30,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="searchField">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>90</y>
-     <width>200</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>Search by name...</string>
-   </property>
-   <property name="toolTip">
-    <string>Enter first and last name to search</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
