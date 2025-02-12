@@ -926,7 +926,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../Pictures/Saved Pictures/66u46ummrnp21.png</pixmap>
+       <pixmap>Carpark.png</pixmap>
       </property>
      </widget>
     </item>
