@@ -19,11 +19,11 @@ class CarPark:
         self.ui.CLEAR.clicked.connect(self.empty_search)
 
     def searchDB(self, name, registration, make, model, role):
-        # Split the name into first and last name
+        # Split the name the user put in into first and last name
         name_parts = name.strip().split(" ", 1)
         fname = name_parts[0] if name_parts else ""
         lname = name_parts[1] if len(name_parts) > 1 else ""
-        # Add wildcards to the search terms
+        # MAkes it so that the search is case insensitive and can search for partial input
         fname = f"%{fname}%"
         lname = f"%{lname}%"
         registration = f"%{registration}%"
