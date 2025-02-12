@@ -218,6 +218,7 @@ class Ui_Dialog(object):
         self.SIDEBUTTONSANDTABLE = QtWidgets.QHBoxLayout()
         self.SIDEBUTTONSANDTABLE.setObjectName("SIDEBUTTONSANDTABLE")
         self.DETAILTABLE = QtWidgets.QTableView(self.layoutWidget)
+        self.DETAILTABLE.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.DETAILTABLE.setObjectName("DETAILTABLE")
         self.SIDEBUTTONSANDTABLE.addWidget(self.DETAILTABLE)
         self.SIDEBUTTONS = QtWidgets.QVBoxLayout()
