@@ -185,7 +185,7 @@ class Ui_Dialog(object):
         self.MAINGRID.addLayout(self.INFOLABELS, 1, 0, 1, 1)
         self.IMAGE = QtWidgets.QLabel(self.layoutWidget)
         self.IMAGE.setText("")
-        self.IMAGE.setPixmap(QtGui.QPixmap(".\\Carpark.png"))
+        self.IMAGE.setPixmap(QtGui.QPixmap("Carpark.png"))
         self.IMAGE.setObjectName("IMAGE")
         self.MAINGRID.addWidget(self.IMAGE, 1, 2, 1, 1)
         self.BUTTONS = QtWidgets.QHBoxLayout()
